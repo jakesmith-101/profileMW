@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+	
+<form>
+	<fields name="profileMW">
+		<fieldset name="profileMW"
+			label="PLG_USER_PROFILEMW_SLIDER_LABEL"
+		>
+			<field
+				name="subscribe"
+				type="checkbox"
+				id="subscribe"
+				description="PLG_USER_PROFILEMW_FIELD_SUBSCRIBE_DESC"
+				label="PLG_USER_PROFILEMW_FIELD_SUBSCRIBE_LABEL"
+				message="PLG_USER_PROFILEMW_FIELD_SUBSCRIBE_MESSAGE"
+				value="1"
+				checked="0"
+			/>
+
+
+			<field
+				name="wherehear"
+				type="combo"
+				id="wherehear"
+				size="20"
+				description="PLG_USER_PROFILEMW_FIELD_WHEREHEAR_DESC"
+				label="PLG_USER_PROFILEMW_FIELD_WHEREHEAR_LABEL"
+				message="PLG_USER_PROFILEMW_FIELD_WHEREHEAR_MESSAGE"
+			>
+			<option value="Hancock">Hancock Museum</option>
+			<option value="NatureSpy">NatureSpy</option>
+			<option value="Recommendation">Personal Recommendation</option>
+
+			</field>
+			
+			<field
+				name="tos"
+				type="checkbox"
+				label="PLG_USER_PROFILEMW_FIELD_TOS_LABEL"
+				description="PLG_USER_PROFILEMW_FIELD_TOS_DESC"
+				value="1"
+				checked="0"
+			/>
+				
+		</fieldset>
+	</fields>
+</form>

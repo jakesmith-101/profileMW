@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!-- $Id:  -->
+<extension version="1.0" type="plugin" group="user">
+	<name>plg_user_profileMW</name>
+	<author>Helen Chappell</author>
+	<creationDate>January 2019</creationDate>
+	<copyright>(C) 2005 - 2013 Open Source Matters. All rights reserved. Extended by Helen Chappell</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>helen@rhombustechnology.co.uk</authorEmail>
+	<authorUrl>www.rhombustechnology.co.uk</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_USER_PROFILEMW_XML_DESCRIPTION</description>
+
+	<files>
+		<filename plugin="profileMW">profileMW.php</filename>
+		<folder>profiles</folder>
+	</files>
+
+	<languages>
+		<language tag="en-GB">en-GB.plg_user_profileMW.ini</language>
+		<language tag="en-GB">en-GB.plg_user_profileMW.sys.ini</language>
+	</languages>
+
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field name="register-require-user" type="spacer"
+					label="PLG_USER_PROFILEMW_FIELD_NAME_REGISTER_REQUIRE_USER"
+				/>
+
+				<field name="register-require_subscribe" type="list"
+					description="PLG_USER_PROFILEMW_FIELD_SUBSCRIBE_DESC"
+					label="PLG_USER_PROFILEMW_FIELD_SUBSCRIBE_LABEL"
+				>
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+
+				<field name="register-require_wherehear" type="list"
+					description="PLG_USER_PROFILEMW_FIELD_WHEREHEAR_DESC"
+					label="PLG_USER_PROFILEMW_FIELD_WHEREHEAR_LABEL"
+				>
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+
+				<field name="register-require_tos" type="list"
+					description="PLG_USER_PROFILEMW_FIELD_TOS_DESC"
+					label="PLG_USER_PROFILEMW_FIELD_TOS_LABEL"
+				>
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				
+				<field name="profile-require-user" type="spacer"
+					label="PLG_USER_PROFILEMW_FIELD_NAME_PROFILE_REQUIRE_USER"
+				/>
+
+				<field name="profile-require_subscribe" type="list"
+					description="PLG_USER_PROFILEMW_FIELD_SUBSCRIBE_DESC"
+					label="PLG_USER_PROFILEMW_FIELD_SUBSCRIBE_LABEL"
+				>
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				
+				<field name="profile-require_wherehear" type="list"
+					description="PLG_USER_PROFILEMW_FIELD_WHEREHEAR_DESC"
+					label="PLG_USER_PROFILEMW_FIELD_WHEREHEAR_LABEL"
+				>
+					<option value="2">JOPTION_REQUIRED</option>
+					<option value="1">JOPTION_OPTIONAL</option>
+					<option value="0">JDISABLED</option>
+				</field>
+				
+				
+
+			</fieldset>
+
+		</fields>
+	</config>
+ </extension>
