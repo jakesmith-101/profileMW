@@ -26,9 +26,19 @@
 				label="PLG_USER_PROFILEMW_FIELD_WHEREHEAR_LABEL"
 				message="PLG_USER_PROFILEMW_FIELD_WHEREHEAR_MESSAGE"
 			>
+			<option value="School">At or via school</option>
 			<option value="Hancock">Hancock Museum</option>
+			<option value="BESSummerSchool">British Ecological Society Summer School</option>
+			<option value="BES">British Ecological Society</option>
+			<option value="BTOMagazine">British Trust for Ornithology magazine</option>
 			<option value="NatureSpy">NatureSpy</option>
+			<option value="NHSN">Natural History Society of Northumberland</option>
+			<option value="DWT">Durham Wildlife Trust</option>
 			<option value="Recommendation">Personal Recommendation</option>
+			<option value="Facebook">Facebook</option>
+			<option value="Twitter">Twitter</option>
+			<option value="WILD">WILD exhibition</option>
+			
 
 			</field>
 			
