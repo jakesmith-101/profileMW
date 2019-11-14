@@ -28,6 +28,7 @@
 			>
 			<option value="School">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_SCHOOL</option>
 			<option value="ENETWild">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_ENETWILD</option>
+			<option value="NBN">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_NATBIONET</option>
 			<option value="ENETWild">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_NSLIVE</option>
 			<option value="Hancock">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_HANCOCK</option>
 			<option value="BESSummerSchool">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_BES_SUMMER_SCH</option>
