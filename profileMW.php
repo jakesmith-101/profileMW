@@ -118,6 +118,7 @@
 				$form->removeField('wherehear', 'profileMW');
 			}
 			if ($this->params->get('register-require_tos', 1) > 0) {
+				//$form->setFieldAttribute('tos', 'required', 'required', 'profileMW');
 				$form->setFieldAttribute('tos', 'required', ($this->params->get('register-require_tos') == 2) ? 'required' : '', 'profileMW');
 				//$form->setFieldAttribute('tos', 'required', $this->params->get('register-require_tos') == 2, 'profileMW');
 			} else {

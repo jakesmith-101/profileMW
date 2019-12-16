@@ -27,6 +27,8 @@
 		<language tag="pl-PL">pl-PL.plg_user_profileMW.sys.ini</language>
 		<language tag="hr-HR">hr-HR.plg_user_profileMW.ini</language>
 		<language tag="hr-HR">hr-HR.plg_user_profileMW.sys.ini</language>
+		<language tag="hu-HU">hu-HU.plg_user_profileMW.ini</language>
+		<language tag="hu-HU">hu-HU.plg_user_profileMW.sys.ini</language>
 	</languages>
 
 	<config>
