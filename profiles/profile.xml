@@ -40,6 +40,7 @@
 			<option value="Recommendation">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_RECOMMEND</option>
 			<option value="Facebook">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_FACEBOOK</option>
 			<option value="Twitter">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_TWITTER</option>
+			<option value="Twitter">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_INSTAGRAM</option>
 			<option value="WILD">PLG_USER_PROFILEMW_OPTION_WHEREHEAR_WILD</option>
 
 			</field>
