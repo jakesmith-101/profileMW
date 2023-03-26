@@ -87,6 +87,11 @@
 					<option value="0">JDISABLED</option>
 				</field>
 				
+				<field name="profile-require_gardenbw" type="text"
+					description="PLG_USER_PROFILEMW_FIELD_GARDENBW_DESC"
+					label="PLG_USER_PROFILEMW_FIELD_GARDENBW_LABEL"
+				/>
+
 				
 
 			</fieldset>

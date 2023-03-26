@@ -25,13 +25,15 @@
 	 */
 	function onContentPrepareData($context, $data)
 	{
+		
+			
 		// Check we are manipulating a valid form.
 		if (!in_array($context, array('com_users.profile','com_users.registration','com_users.user','com_admin.profile'))){
 			return true;
 		}
 
 		$userId = isset($data->id) ? $data->id : 0;
-
+		
 		// Load the profile data from the database.
 		$db = JFactory::getDbo();
 		$db->setQuery(
@@ -53,6 +55,13 @@
 		foreach ($results as $v) {
 			$k = str_replace('profileMW.', '', $v[0]);
 			$data->profileMW[$k] = json_decode($v[1], true);
+		}
+		
+		$input = JFactory::getApplication()->input;
+		$gbwNum = $input->getString("u", 0);
+		
+		if ( $gbwNum ) {
+			$data->profileMW['gardenbw'] = $gbwNum;
 		}
 
 		return true;
@@ -95,6 +104,11 @@
 			} else {
 				$form->removeField('wherehear', 'profileMW');
 			}
+			if ($this->params->get('profile-require_gardenbw', 1) > 0) {
+				$form->setFieldAttribute('gardenbw', 'required', $this->params->get('profile-require_gardenbw') == 2, 'profileMW');
+			} else {
+				$form->removeField('gardenbw', 'profileMW');
+			}
 		}
 
 		//In this example, we treat the frontend registration and the back end user create or edit as the same. 
@@ -123,6 +137,11 @@
 				//$form->setFieldAttribute('tos', 'required', $this->params->get('register-require_tos') == 2, 'profileMW');
 			} else {
 				$form->removeField('tos', 'profileMW');
+			}
+			if ($this->params->get('register-require_gardenbw', 1) > 0) {
+				$form->setFieldAttribute('gardenbw', 'required', ($this->params->get('register-require_gardenbw') == 2) ? 'required' : '', 'profileMW');
+			} else {
+				$form->removeField('gardenbw', 'profileMW');
 			}
 		}			
 	}

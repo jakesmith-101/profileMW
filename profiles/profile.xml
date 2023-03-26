@@ -53,6 +53,15 @@
 				value="1"
 				checked="0"
 			/>
+			
+			<field
+				name="gardenbw"
+				type="text"
+				label="PLG_USER_PROFILEMW_FIELD_GARDENBW_LABEL"
+				description="PLG_USER_PROFILEMW_FIELD_GARDENBW_DESC"
+				value="1"
+				checked="0"
+			/>
 				
 		</fieldset>
 	</fields>
