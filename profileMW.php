@@ -7,6 +7,15 @@
 
  defined('JPATH_BASE') or die;
 
+
+ // Include EmailOctopus wrapper class
+ $component_path = JPATH_SITE . '/components/com_biodiv';
+
+//error_log("Component path = " . $component_path );
+
+require_once($component_path.'/local.php');
+require_once($component_path.'/BiodivOctopus.php');
+
   /**
    * An example custom profile plugin.
    *
@@ -118,6 +127,7 @@
 			JForm::addFormPath(dirname(__FILE__).'/profiles');
 			$form->loadFile('profile', false);
 			
+			/* Try removing this section and using the xml file to specify whether something is required
 			// Toggle whether the something field is required.
 			if ($this->params->get('register-require_subscribe', 1) > 0) {
 				$form->setFieldAttribute('subscribe', 'required', ($this->params->get('register-require_subscribe') == 2) ? 'required' : '', 'profileMW');
@@ -132,8 +142,8 @@
 				$form->removeField('wherehear', 'profileMW');
 			}
 			if ($this->params->get('register-require_tos', 1) > 0) {
-				//$form->setFieldAttribute('tos', 'required', 'required', 'profileMW');
-				$form->setFieldAttribute('tos', 'required', ($this->params->get('register-require_tos') == 2) ? 'required' : '', 'profileMW');
+				$form->setFieldAttribute('tos', 'required', 'required', 'profileMW');
+				//$form->setFieldAttribute('tos', 'required', ($this->params->get('register-require_tos') == 2) ? 'required' : '', 'profileMW');
 				//$form->setFieldAttribute('tos', 'required', $this->params->get('register-require_tos') == 2, 'profileMW');
 			} else {
 				$form->removeField('tos', 'profileMW');
@@ -143,6 +153,7 @@
 			} else {
 				$form->removeField('gardenbw', 'profileMW');
 			}
+			*/
 		}			
 	}
 	
@@ -166,7 +177,7 @@
 	function onUserAfterSave($data, $isNew, $result, $error)
 	{
 		$userId	= JArrayHelper::getValue($data, 'id', 0, 'int');
-
+		
 		if ($userId && $result && isset($data['profileMW']) && (count($data['profileMW'])))
 		{
 			try
@@ -179,15 +190,37 @@
 
 				$tuples = array();
 				$order	= 1;
+				$toSubscribe = false;
 				foreach ($data['profileMW'] as $k => $v) {
 					//$tuples[] = '('.$userId.', '.$db->quote('profileMW.'.$k).', '.$db->quote(json_encode($v)).', '.$order++.')';
 					$tuples[] = '('.$userId.', '.$db->quote('profileMW.'.$k).', '.json_encode($v).', '.$order++.')';
+					
+					if ( $k == 'subscribe' and $v == '1' ) {
+						$toSubscribe = true;
+						//error_log ("User " . $userId . " requests subscription to newsletter");
+					}
 				}
 
 				$db->setQuery('INSERT INTO #__user_profiles VALUES '.implode(', ', $tuples));
 				if (!$db->query()) {
 					throw new Exception($db->getErrorMsg());
 				}
+				
+				if ( $toSubscribe ) {
+					
+					$email	= JArrayHelper::getValue($data, 'email', 0, 'string');$name	= JArrayHelper::getValue($data, 'name', 0, 'string');
+		
+					$octopus = new BiodivOctopus();
+					
+					$subscribeSuccess = $octopus->subscribe ( $email, $name );
+					
+					if ( !$subscribeSuccess ) {
+						
+						error_log ("Failed to subscribe to newsletter for user " . $userId . ", email " . $email . ", name " . $name );
+					}
+				}
+				
+				
 			}
 			catch (JException $e) {
 				$this->_subject->setError($e->getMessage());

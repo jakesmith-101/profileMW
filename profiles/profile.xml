@@ -46,15 +46,6 @@
 			</field>
 			
 			<field
-				name="tos"
-				type="checkbox"
-				label="PLG_USER_PROFILEMW_FIELD_TOS_LABEL"
-				description="PLG_USER_PROFILEMW_FIELD_TOS_DESC"
-				value="1"
-				checked="0"
-			/>
-			
-			<field
 				name="gardenbw"
 				type="text"
 				label="PLG_USER_PROFILEMW_FIELD_GARDENBW_LABEL"
@@ -63,6 +54,17 @@
 				checked="0"
 			/>
 				
+			<field
+				name="tos"
+				type="checkbox"
+				label="PLG_USER_PROFILEMW_FIELD_TOS_LABEL"
+				description="PLG_USER_PROFILEMW_FIELD_TOS_DESC"
+				value="1"
+				checked="0"
+				required="true"
+			/>
+			
+			
 		</fieldset>
 	</fields>
 </form>
