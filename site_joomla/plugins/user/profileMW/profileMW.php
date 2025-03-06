@@ -14,7 +14,7 @@
 //error_log("Component path = " . $component_path );
 
 require_once($component_path.'/local.php');
-require_once($component_path.'/BiodivOctopus.php');
+//require_once($component_path.'/BiodivOctopus.php');
 
   /**
    * An example custom profile plugin.
@@ -205,7 +205,7 @@ require_once($component_path.'/BiodivOctopus.php');
 				if (!$db->query()) {
 					throw new Exception($db->getErrorMsg());
 				}
-				
+				/*
 				if ( $toSubscribe ) {
 					
 					$email	= JArrayHelper::getValue($data, 'email', 0, 'string');$name	= JArrayHelper::getValue($data, 'name', 0, 'string');
@@ -219,7 +219,7 @@ require_once($component_path.'/BiodivOctopus.php');
 						error_log ("Failed to subscribe to newsletter for user " . $userId . ", email " . $email . ", name " . $name );
 					}
 				}
-				
+				*/
 				
 			}
 			catch (JException $e) {

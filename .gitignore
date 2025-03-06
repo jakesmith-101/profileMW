@@ -1,0 +1,9 @@
+# Ignore everything
+db/*
+site_joomla/*
+site_joomla/plugins/*
+site_joomla/plugins/user/*
+# Don't ignore profileMW plugin
+!site_joomla/plugins
+!site_joomla/plugins/user
+!site_joomla/plugins/user/profileMW
