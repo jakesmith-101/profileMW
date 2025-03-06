@@ -4,7 +4,7 @@
   * @copyright	Copyright (C) 2005 - 2010 Open Source Matters, Inc. All rights reserved.
   * @license		GNU General Public License version 2 or later; see LICENSE.txt
   */
-
+ use Joomla\CMS\Factory;
  defined('JPATH_BASE') or die;
 
 
@@ -44,18 +44,22 @@
 		$userId = isset($data->id) ? $data->id : 0;
 		
 		// Load the profile data from the database.
-		$db = JFactory::getDbo();
-		$db->setQuery(
-			'SELECT profile_key, profile_value FROM #__user_profiles' .
-			' WHERE user_id = '.(int) $userId .
-			' AND profile_key LIKE \'profileMW.%\'' .
-			' ORDER BY ordering'
-		);
-		$results = $db->loadRowList();
+		$db = Factory::getDbo();
 
 		// Check for a database error.
-		if ($db->getErrorNum()) {
-			$this->_subject->setError($db->getErrorMsg());
+		try
+		{
+			$db->setQuery(
+				'SELECT profile_key, profile_value FROM #__user_profiles' .
+				' WHERE user_id = '.(int) $userId .
+				' AND profile_key LIKE \'profileMW.%\'' .
+				' ORDER BY ordering'
+			);
+			$results = $db->loadRowList();
+		}
+		catch (RuntimeException $e)
+		{
+			$this->_subject->setError($e->getMessage());
 			return false;
 		}
 
@@ -66,7 +70,7 @@
 			$data->profileMW[$k] = json_decode($v[1], true);
 		}
 		
-		$input = JFactory::getApplication()->input;
+		$input = Factory::getApplication()->input;
 		$gbwNum = $input->getString("u", 0);
 		
 		if ( $gbwNum ) {
@@ -85,7 +89,7 @@
 	function onContentPrepareForm($form, $data)
 	{
 		// Load user_profile plugin language
-		$lang = JFactory::getLanguage();
+		$lang = Factory::getLanguage();
 		$lang->load('plg_user_profileMW', JPATH_ADMINISTRATOR);
 
 		if (!($form instanceof JForm)) {
@@ -160,8 +164,8 @@
 	function onUserBeforeSave ($user, $isnew, $data)
 	{
 		// Check that the tos is checked if required ie only in registration from frontend.
-		$task       = JFactory::getApplication()->input->getCmd('task');
-		$option     = JFactory::getApplication()->input->getCmd('option');
+		$task       = Factory::getApplication()->input->getCmd('task');
+		$option     = Factory::getApplication()->input->getCmd('option');
 		
 		$tosenabled = ($this->params->get('register-require_tos', 0) == 2);
 
@@ -182,7 +186,7 @@
 		{
 			try
 			{
-				$db = JFactory::getDbo();
+				$db = Factory::getDbo();
 				$db->setQuery('DELETE FROM #__user_profiles WHERE user_id = '.$userId.' AND profile_key LIKE \'profileMW.%\'');
 				if (!$db->query()) {
 					throw new Exception($db->getErrorMsg());
@@ -252,7 +256,7 @@
 		{
 			try
 			{
-				$db = JFactory::getDbo();
+				$db = Factory::getDbo();
 				$db->setQuery(
 					'DELETE FROM #__user_profiles WHERE user_id = '.$userId .
 					" AND profile_key LIKE 'profileMW.%'"
