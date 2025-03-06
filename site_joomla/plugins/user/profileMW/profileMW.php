@@ -8,12 +8,12 @@
  defined('JPATH_BASE') or die;
 
 
- // Include EmailOctopus wrapper class
- $component_path = JPATH_SITE . '/components/com_biodiv';
+// Include EmailOctopus wrapper class
+// $component_path = JPATH_SITE . '/components/com_biodiv';
 
 //error_log("Component path = " . $component_path );
 
-require_once($component_path.'/local.php');
+//require_once($component_path.'/local.php');
 //require_once($component_path.'/BiodivOctopus.php');
 
   /**
