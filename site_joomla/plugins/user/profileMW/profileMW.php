@@ -13,7 +13,7 @@
 
 //error_log("Component path = " . $component_path );
 
-require_once($component_path.'/local.php');
+//require_once($component_path.'/local.php');
 require_once($component_path.'/BiodivOctopus.php');
 
   /**
