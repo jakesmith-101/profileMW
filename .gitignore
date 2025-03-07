@@ -3,7 +3,11 @@ db/*
 site_joomla/*
 site_joomla/plugins/*
 site_joomla/plugins/user/*
+site_joomla/components/*
 # Don't ignore profileMW plugin
 !site_joomla/plugins
 !site_joomla/plugins/user
 !site_joomla/plugins/user/profileMW
+# Don't ignore com_biodiv component
+!site_joomla/components
+!site_joomla/components/com_biodiv

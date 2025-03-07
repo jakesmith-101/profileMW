@@ -9,12 +9,12 @@
 
 
 // Include EmailOctopus wrapper class
-// $component_path = JPATH_SITE . '/components/com_biodiv';
+ $component_path = JPATH_SITE . '/components/com_biodiv';
 
 //error_log("Component path = " . $component_path );
 
-//require_once($component_path.'/local.php');
-//require_once($component_path.'/BiodivOctopus.php');
+require_once($component_path.'/local.php');
+require_once($component_path.'/BiodivOctopus.php');
 
   /**
    * An example custom profile plugin.
@@ -209,7 +209,7 @@
 				if (!$db->query()) {
 					throw new Exception($db->getErrorMsg());
 				}
-				/*
+				
 				if ( $toSubscribe ) {
 					
 					$email	= JArrayHelper::getValue($data, 'email', 0, 'string');$name	= JArrayHelper::getValue($data, 'name', 0, 'string');
@@ -223,7 +223,7 @@
 						error_log ("Failed to subscribe to newsletter for user " . $userId . ", email " . $email . ", name " . $name );
 					}
 				}
-				*/
+				
 				
 			}
 			catch (JException $e) {
